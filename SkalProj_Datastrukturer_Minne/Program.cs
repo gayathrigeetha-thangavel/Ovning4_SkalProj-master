@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections;
+using System.Net.NetworkInformation;
 using System.Security.Cryptography;
 
 namespace SkalProj_Datastrukturer_Minne
@@ -416,7 +417,7 @@ namespace SkalProj_Datastrukturer_Minne
             int n = Convert.ToInt32(Console.ReadLine());
             int result = RecursiveOdd(n);
             if (result == 0){
-                Console.WriteLine("Invalid input number given");
+                Console.WriteLine("Invalid input number are given");
             }
             else{
                 Console.WriteLine($"Result of {n} : {result}");
@@ -434,13 +435,39 @@ namespace SkalProj_Datastrukturer_Minne
             {
                 return n * RecursiveOdd(n-2);
             }
-            return 0;
+            else{
+                return 0;
+            }
         }
 
         private static void RecursiveEvenNumber()
         {
-            throw new NotImplementedException();
+            Console.WriteLine("Enter the even number:");
+            int n = Convert.ToInt32(Console.ReadLine());
+            int result = RecursiveEven(n);
+            if (result == 0){
+                Console.WriteLine("Invalid input number are given");
+            }
+            else{
+                Console.WriteLine($"Result of {n} : {result}");
+            }
         }
+
+        private static int RecursiveEven(int n)
+        {
+            Console.WriteLine($"Fact({n})");
+            if (n == 2){
+                return 2;
+            }
+            else if ((n % 2) == 0)
+            {
+                return n * RecursiveEven(n-2);
+            }
+            else{
+                return 0;
+            }
+        }
+
 
         private static void FabanocciSeries()
         {
